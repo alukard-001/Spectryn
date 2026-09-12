@@ -1,0 +1,28 @@
+/**
+ * BLOCK: Post Taxonomy
+ */
+
+// Import block dependencies and components
+import { PostTaxonomy } from './edit';
+import save from './save';
+import deprecated from './deprecated';
+import UAGB_Block_Icons from '@Controls/block-icons';
+// Components
+import { __ } from '@wordpress/i18n';
+
+// Register block controls
+
+import { registerBlockType } from '@wordpress/blocks';
+
+// Register the block
+registerBlockType( 'uagb/post-taxonomy', {
+	apiVersion: 3,
+	title: __( 'Post Taxonomy', 'ultimate-addons-for-gutenberg' ),
+	description: __( "Show your post's under categories.", 'ultimate-addons-for-gutenberg' ),
+	icon: UAGB_Block_Icons.post_grid,
+	parent: [ 'uagb/post-grid', 'uagb/post-masonry', 'uagb/post-carousel' ],
+	keywords: [ __( 'tags', 'ultimate-addons-for-gutenberg' ), __( 'taxonomy', 'ultimate-addons-for-gutenberg' ), __( 'uag', 'ultimate-addons-for-gutenberg' ) ],
+	PostTaxonomy,
+	save,
+	deprecated,
+} );
